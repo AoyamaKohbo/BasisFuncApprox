@@ -19,10 +19,10 @@
 
   <body>
     <h3>基底関数による非線形性の有限要素近似</h3>
-    <h3>§基底関数による有限要素近似</h3>
-      <p>まず、長さ\(d\)の領域を\(m\)個の有限要素に分割し、
+    <h3>§基底関数</h3>
+      <p>まず、長さ\(d\)の領域を\(m\)個の有限要素に等分割し(\(\Delta d=d/m\))、
         \(m+1\)個の有限要素のつなぎ目(節)の位置を\(x=p_i\)として、
-        節\(p_i\)における基底関数\(\phi_i(x)~~(i=0\cdots m+1)\)を次式で定義します。</p>
+        節\(p_i\)における基底関数\(\phi_i(x)~~(i=0\cdots m)\)を次式で定義します。</p>
     <p>\(i=0\)</p>
     \begin{align}
       \left.
@@ -33,7 +33,7 @@
       \right\}  \label{eq:BaseFunc_1}
     \end{align}
 
-    <p>\(i=1,\cdots,m\)</p>
+    <p>\(i=1,\cdots,m-1\)</p>
     \begin{align}
       \left.
        \begin{array}{@{\,}rll}
@@ -43,7 +43,7 @@
       \right\}  \label{eq:BaseFunc}
     \end{align}
 
-    <p>\(i=m+1\)</p>
+    <p>\(i=m\)</p>
     \begin{align}
       \left.
        \begin{array}{@{\,}rl}
@@ -56,7 +56,7 @@
     <p>基底関数\eqref{eq:BaseFunc_1}～\eqref{eq:BaseFunc_m}をグラフで表現すると次の図になります。</p>
     <img src="DispBasisFunc.jpg" width=600px>    
 
-    <p>\(m+1\)個の有限要素の節\(x=p_i\)に基底関数\(\phi_i(x)~~(i=0\cdots m+1)\)を配置します。</p>    
+    <p>\(m+1\)個の有限要素の節\(x=p_i\)に基底関数\(\phi_i(x)~~(i=0\cdots m)\)を配置します。</p>    
 
     <img src="DispBasisFuncNetWork.jpg" width=600px>
 
