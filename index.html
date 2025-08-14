@@ -27,8 +27,9 @@
     \begin{align}
       \left.
        \begin{array}{@{\,}rl}
-        \phi_{0}(x)&=~1&~(x-p_0 < 0),\\
-        \phi_{0}(x)&=~\frac{p_1-x}{\Delta d}&~(0 < x-p_0 < \Delta d).
+        \phi_{0}(x)&=~1&~(x \le p_0),\\
+        \phi_{0}(x)&=~\frac{p_1-x}{p_1-p_0}&~(p_0 < x \le p_1),\\
+        \phi_{0}(x)&=~0&~(p_1 < x).
        \end{array}
       \right\}  \label{eq:BaseFunc_1}
     \end{align}
@@ -37,8 +38,9 @@
     \begin{align}
       \left.
        \begin{array}{@{\,}rll}
-        \phi_{i}(x)&=~\frac{x-p_{i-1}}{\Delta d}&~(-\Delta d < x-p_i < 0),\\
-        \phi_{i}(x)&=~\frac{p_{i+1}-x}{\Delta d}&~(0 < x-p_i < \Delta d).
+        \phi_{i}(x)&=~\frac{x-p_{i-1}}{p_i-p_{i-1}}&~(p_{i-1} < x \le p_i),\\
+        \phi_{i}(x)&=~\frac{p_{i+1}-x}{p_{i+1}-p_i}&~(p_i < x \le p_{i+1}),\\
+        \phi_{i}(x)&=~0&~(x \le p_{i-1},~p_{i+1} < x).
        \end{array}
       \right\}  \label{eq:BaseFunc}
     \end{align}
@@ -47,8 +49,9 @@
     \begin{align}
       \left.
        \begin{array}{@{\,}rl}
-        \phi_{m}(x)&=~\frac{x-p_{i+1}}{\Delta d}&~(-\Delta d < x-p_m < 0),\\
-        \phi_{m}(x)&=~1&~(0 < x-p_m).
+        \phi_{m}(x)&=~0&~(x \le p_{m-1}),\\       
+        \phi_{m}(x)&=~\frac{x-p_{m-1}}{p_m-p_{m-1}}&~(p_{m-1} < x \le p_m),\\
+        \phi_{m}(x)&=~1&~(p_m < x).
        \end{array}
       \right\}  \label{eq:BaseFunc_m}
     \end{align}
@@ -56,12 +59,13 @@
     <p>基底関数\eqref{eq:BaseFunc_1}～\eqref{eq:BaseFunc_m}をグラフで表現すると次の図になります。</p>
     <img src="DispBasisFunc.jpg" width=600px>    
 
-    <p>\(m+1\)個の有限要素の節\(x=p_i\)に基底関数\(\phi_i(x)~~(i=0\cdots m)\)を配置します。</p>    
+    <p>\(m+1\)個の有限要素の節\(x=p_i\)に基底関数\(\phi_i(x)~~(i=0\cdots m)\)を配置します。
+      下図は\(m=4\)の場合です。</p>    
 
     <img src="DispBasisFuncNetWork.jpg" width=600px>
 
     <h3>§基底関数による関数の有限要素近似</h3>
-    <p>基底関数\(\phi_i(x)\)を用いて次式の\(\hat f(x)\)で有限要素近似できます。</p>
+    <p>基底関数\(\phi_i(x)\)を用いて関数\(f(x)\)を次式の\(\hat f(x)\)で有限要素近似できます。</p>
     \begin{align}
       \hat f(x) = \sum_{i=1}^n  w_i\phi_i(x) \label{eq:ApproXFunc}
     \end{align}
