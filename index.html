@@ -39,7 +39,7 @@
       \left.
        \begin{array}{@{\,}rll}
         \phi_{i}(x)&=~\frac{x-p_{i-1}}{p_i-p_{i-1}}&~(p_{i-1} < x \le p_i),\\
-        \phi_{i}(x)&=~\frac{p_{i+1}-x}{p_{i+1}-p_i}&~(p_i < x \le p_{i+1}),\\
+        \phi_{i}(x)&=~\frac{x-p_{i+1}}{p_{i}-p_{i+1}}&~(p_i < x \le p_{i+1}),\\
         \phi_{i}(x)&=~0&~(x \le p_{i-1},~p_{i+1} < x).
        \end{array}
       \right\}  \label{eq:BaseFunc}
@@ -67,16 +67,19 @@
     <h3>§基底関数による関数の有限要素近似</h3>
     <p>基底関数\(\phi_i(x)\)を用いて関数\(f(x)\)を次式の\(\hat f(x)\)で有限要素近似できます。</p>
     \begin{align}
-      \hat f(x) = \sum_{i=1}^n  w_i\phi_i(x) \label{eq:ApproXFunc}
+      \hat f(x) = \sum_{i=1}^m  w_i\phi_i(x) \label{eq:ApproXFunc}
     \end{align}
 
     <p>変位\(x \in [p_{i-1},~p_{i}]\)のとき、関係する基底関数は\(\phi_{i-1}(x)\)と\(\phi_i(x)\)だけになり(他は\(0\))、
       関数\(f(x)\)有限要素近似\eqref{eq:ApproXFunc}は次式となります。</p>
     \begin{align}
-      \hat f(x) = \hat w_i\phi_{i-1}(x) + \hat w_i\phi_i(x)~~~(i=1,\cdots,m) \label{eq:Func_eta2}
+      \hat f(x) = w_i\phi_{i-1}(x) + w_i\phi_i(x)~~~(i=1,\cdots,m) \label{eq:Func_eta2}
     \end{align}
     <p>\(\phi_i(p_i)=1\)なので、基底関数\(\phi_i(x)\)の荷重\(w_i=f(p_i)\)になります。</p> 
     <img src="DispAppFunc.jpg" width=600px>
+
+    <p><a href="https://aoyamakohbo.github.io/AdaptBasisFunc/">モデル規範適応制御への有限要素近似の適用</a>
+    では基底関数による非線形性の有限要素近似を非線形性を有するモデル規範適応制御に適用します。</p>
 
    <p><a href="https://aoyamakohbo.github.io/Craftlogy/">->TOP</a></p>
 </body>
